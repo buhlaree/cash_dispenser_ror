@@ -1,0 +1,17 @@
+<h1>New Account</h1>
+
+<%= form_for :account, url: accounts_path do |account_form| %>
+  <p>
+    Account Owner<br>
+    <%= account_form.select :user_id, @options %>
+  </p>
+
+  <p>
+    <%= account_form.label :total %><br>
+    <%= account_form.number_field :total %>
+  </p>
+
+  <p>
+    <%= account_form.submit %>
+  </p>
+<% end %>

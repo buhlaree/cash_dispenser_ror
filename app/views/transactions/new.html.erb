@@ -1,0 +1,20 @@
+<h1>New Transaction</h1>
+
+<%= form_for :transaction, url: transactions_path do |transaction_form| %>
+  <p>
+    Account Owner<br>
+    <%= transaction_form.select :account_id, @options %>
+  </p>
+
+
+
+
+  <p>
+    <%= transaction_form.label :amount %><br>
+    <%= transaction_form.number_field :amount %>
+  </p>
+
+  <p>
+    <%= transaction_form.submit %>
+  </p>
+<% end %>

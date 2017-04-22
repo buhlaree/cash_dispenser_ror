@@ -1,0 +1,44 @@
+<p>
+  <strong>Transaction:</strong>
+  <%= @transaction.id %>
+</p>
+
+<p>
+  <strong>Starting account amount:</strong>
+  <%= @account.total %>
+</p>
+
+<p>
+  <strong>Transaction Amount:</strong>
+  <%= @transaction.amount %>
+</p>
+
+<p>
+  <strong>Account Owner</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Account Number:</strong>
+  <%= @account.id %>
+</p>
+
+<% if @account.total < @transaction.amount %>
+  <p>
+    You do not have enough money in your account.
+  </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Number of Bills</th>
+      <th>Type of Bill</th>
+    </tr>
+
+    <% @response.each do |nominalamount| %>
+      <tr>
+        <td><%= nominalamount[0] %></td>
+        <td><%= nominalamount[1] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

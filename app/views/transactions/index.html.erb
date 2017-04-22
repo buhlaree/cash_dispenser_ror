@@ -1,0 +1,20 @@
+<h1>List of Transactions</h1>
+
+<table>
+  <tr>
+    <th>Account Number</th>
+    <th>Account Holder</th>
+    <th>Account Total</th>
+    <th>Transaction Amount</th>
+  </tr>
+
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= @accounts.find(transaction.account_id).id %></td>
+      <td><%= @users.find(@accounts.find(transaction.account_id).user_id).name %></td>
+      <td>$<%= @accounts.find(transaction.account_id).total %></td>
+      <td>$<%= transaction.amount %></td>
+      <td><%= link_to 'Show', transaction_path(transaction) %></td>
+    </tr>
+  <% end %>
+</table>

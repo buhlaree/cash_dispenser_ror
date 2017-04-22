@@ -1,0 +1,18 @@
+<h1>Listing accounts</h1>
+
+<table>
+  <tr>
+    <th>Account Number</th>
+    <th>Account Holder</th>
+    <th>Total</th>
+  </tr>
+
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.id %></td>
+      <td><%= @users.find(account.user_id).name %></td>
+      <td>$<%= account.total %></td>
+      <td><%= link_to 'Show', account_path(account) %></td>
+    </tr>
+  <% end %>
+</table>
